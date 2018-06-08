@@ -1,12 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Key Detection</title>
-  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+    <meta charset="UTF-8">
+    <title>Key Detection</title>
+    <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
 </head>
 <body>
+
 <script>
+    const secretWord = 'wesbos';
+    const pressed = [];
+
+    window.addEventListener('keyup', (e => {
+        pressed.push(e.key);
+        pressed.splice(-secretWord.length -1, pressed.length - secretWord.length);
+
+        if(pressed.join('').includes(secretWord)) console.log('EASTER EGG!')
+    }))
+
 </script>
+
 </body>
 </html>
